@@ -8,7 +8,6 @@ const OrderContext = createContext<OrderContextInterface>({
   discount: 0,
   total: 0,
   addToOrder: () => {},
-  submitOrder: () => {},
 });
 
 const OrderProvider: React.FC = ({ children }) => {
@@ -36,8 +35,6 @@ const OrderProvider: React.FC = ({ children }) => {
       setOrder([...order, { quantity: 1, ...item }]);
     }
   };
-
-  const submitOrder = () => {};
 
   useEffect(() => {
     const newTotal = order.reduce(
@@ -67,9 +64,7 @@ const OrderProvider: React.FC = ({ children }) => {
   }, [order, discount]);
 
   return (
-    <OrderContext.Provider
-      value={{ order, total, discount, addToOrder, submitOrder }}
-    >
+    <OrderContext.Provider value={{ order, total, discount, addToOrder }}>
       {children}
     </OrderContext.Provider>
   );

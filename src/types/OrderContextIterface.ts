@@ -6,5 +6,4 @@ export interface OrderContextInterface {
   total: number;
   discount: number;
   addToOrder: (item: MenuItemInterface) => void;
-  submitOrder: () => void;
 }
